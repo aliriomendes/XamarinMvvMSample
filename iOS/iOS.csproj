@@ -97,28 +97,27 @@
     <Reference Include="Plugin.Connectivity">
       <HintPath>..\packages\Xam.Plugin.Connectivity.3.1.1\lib\Xamarin.iOS10\Plugin.Connectivity.dll</HintPath>
     </Reference>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.4.8.0\lib\netstandard1.1\Autofac.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\First.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\First.imageset\tab_feed.png" />
-    <ImageAsset Include="Assets.xcassets\First.imageset\tab_feed%402x.png" />
-    <ImageAsset Include="Assets.xcassets\First.imageset\tab_feed%403x.png" />
-    <ImageAsset Include="Assets.xcassets\Second.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Second.imageset\tab_about.png" />
-    <ImageAsset Include="Assets.xcassets\Second.imageset\tab_about%402x.png" />
-    <ImageAsset Include="Assets.xcassets\Second.imageset\tab_about%403x.png" />
-    <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\xamarin_logo.png" />
-    <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\xamarin_logo%402x.png" />
-    <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\xamarin_logo%403x.png" />
-    <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Resource\Assets.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Resource\Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Resource\Assets.xcassets\First.imageset\Contents.json" />
+    <ImageAsset Include="Resource\Assets.xcassets\First.imageset\tab_feed.png" />
+    <ImageAsset Include="Resource\Assets.xcassets\First.imageset\tab_feed%402x.png" />
+    <ImageAsset Include="Resource\Assets.xcassets\First.imageset\tab_feed%403x.png" />
+    <ImageAsset Include="Resource\Assets.xcassets\Second.imageset\Contents.json" />
+    <ImageAsset Include="Resource\Assets.xcassets\Second.imageset\tab_about.png" />
+    <ImageAsset Include="Resource\Assets.xcassets\Second.imageset\tab_about%402x.png" />
+    <ImageAsset Include="Resource\Assets.xcassets\Second.imageset\tab_about%403x.png" />
+    <ImageAsset Include="Resource\Assets.xcassets\XamarinLogo.imageset\Contents.json" />
+    <ImageAsset Include="Resource\Assets.xcassets\XamarinLogo.imageset\xamarin_logo.png" />
+    <ImageAsset Include="Resource\Assets.xcassets\XamarinLogo.imageset\xamarin_logo%402x.png" />
+    <ImageAsset Include="Resource\Assets.xcassets\XamarinLogo.imageset\xamarin_logo%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewControllers\DetailViewControllers\BrowseItemDetailViewController.cs" />
-    <Compile Include="ViewControllers\DetailViewControllers\BrowseItemDetailViewController.designer.cs">
-      <DependentUpon>BrowseItemDetailViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="ViewControllers\AboutViewController.cs" />
     <Compile Include="ViewControllers\AboutViewController.designer.cs">
       <DependentUpon>AboutViewController.cs</DependentUpon>
@@ -137,6 +136,25 @@
     </Compile>
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Main.cs" />
+    <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="ViewControllers\Base\BaseViewController.cs" />
+    <Compile Include="ViewControllers\Base\RootViewController.cs" />
+    <Compile Include="ViewControllers\Base\SidePanelViewController.cs" />
+    <Compile Include="ViewControllers\Base\IiOSView.cs" />
+    <Compile Include="ViewControllers\Login\LoginViewController.cs" />
+    <Compile Include="ViewControllers\Login\LoginViewController.designer.cs">
+      <DependentUpon>LoginViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Splash\SplashViewController.cs" />
+    <Compile Include="ViewControllers\Splash\SplashViewController.designer.cs">
+      <DependentUpon>SplashViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setup.cs" />
+    <Compile Include="ViewControllers\BrowseItemDetailViewController.cs" />
+    <Compile Include="ViewControllers\BrowseItemDetailViewController.designer.cs">
+      <DependentUpon>BrowseItemDetailViewController.cs</DependentUpon>
+    </Compile>
+
   </ItemGroup>
   <ItemGroup>
     <None Include="Entitlements.plist" />
@@ -144,8 +162,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="LaunchScreen.storyboard" />
-    <InterfaceDefinition Include="Main.storyboard" />
+    <InterfaceDefinition Include="ViewControllers\Login\LoginViewController.xib" />
+    <InterfaceDefinition Include="ViewControllers\Splash\SplashViewController.xib" />
+    <InterfaceDefinition Include="Resource\LaunchScreen.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
+    <Folder Include="ViewControllers\Base\" />
+    <Folder Include="ViewControllers\Login\" />
+    <Folder Include="ViewControllers\Splash\" />
+    <Folder Include="Resource\" />
+    <Folder Include="Resource\Assets.xcassets\" />
   </ItemGroup>
   <Import Project="..\Core\XamarinMvvMSample.Core.projitems" Label="Shared" Condition="Exists('..\Core\XamarinMvvMSample.Core.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
